@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Payment Result — Bazm-e-Zarbaat</title>
+<style>
+body{margin:0;background:#090909;color:#f5ead2;font-family:Arial,sans-serif;display:grid;place-items:center;min-height:100vh}
+.card{width:min(680px,90%);padding:36px;border:1px solid #6f5730;border-radius:20px;background:#15120e;box-shadow:0 20px 80px #000}
+h1{font-size:34px;margin:0 0 12px}.gold{color:#d8ad58}.muted{color:#b5a789;line-height:1.7}
+.btn{display:inline-block;margin-top:20px;padding:13px 20px;border-radius:999px;background:#d8ad58;color:#15120e;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<div class="card" id="card"><h1>Checking <span class="gold">payment…</span></h1><p class="muted">Please wait while we confirm your booking.</p></div>
+<script>
+const q=new URLSearchParams(location.search), id=q.get("bookingId"), gateway=q.get("gateway"), status=q.get("status");
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+async function run(){
+ const card=document.getElementById("card");
+ if(!id){card.innerHTML="<h1>Payment status</h1><p class='muted'>No booking ID was supplied.</p><a class='btn' href='/'>Back to website</a>";return;}
+ try{
+  const r=await fetch("/api/bookings/"+encodeURIComponent(id)); const b=await r.json();
+  if(!r.ok) throw new Error(b.error||"Booking not found");
+  const success=b.status==="PAID" || status==="success";
+  const failed=b.status==="FAILED" || status==="failed";
+  card.innerHTML=success
+   ? `<h1>✓ <span class="gold">Booking Confirmed</span></h1><p class="muted"><b>Booking ID:</b> ${esc(b.id)}<br><b>Name:</b> ${esc(b.name)}<br><b>Seats:</b> ${b.seats}<br><b>Hours:</b> ${b.hours}<br><b>Amount Paid:</b> ${money(b.amount/100)}<br><b>Payment:</b> ${esc(gateway||"online")}</p><p class="muted">Keep your Booking ID for entry.</p><a class="btn" href="/">Back to website</a>`
+   : failed
+   ? `<h1>Payment <span class="gold">Failed</span></h1><p class="muted">Your payment was not completed. Any reserved seats have been released.</p><a class="btn" href="/">Try again</a>`
+   : `<h1>Payment <span class="gold">Pending</span></h1><p class="muted">Paytm has not returned a final success status yet. Please refresh this page in a moment.</p><a class="btn" href="">Refresh</a>`;
+ }catch(e){card.innerHTML=`<h1>Payment status</h1><p class="muted">${esc(e.message)}</p><a class="btn" href="/">Back to website</a>`}
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+run();
+</script>
+</body></html>

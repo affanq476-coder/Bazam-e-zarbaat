@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bazm-e-Zarbaat — Admin</title>
+<style>
+body{margin:0;background:#080706;color:#eee4cc;font-family:Arial,sans-serif}.wrap{width:min(1100px,92%);margin:auto}header{padding:30px 0;border-bottom:1px solid #463519}h1,h2{color:#e7c675}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.box{background:#12100c;border:1px solid #493719;border-radius:12px;padding:22px;margin:22px 0}label{display:block;margin:10px 0 5px;color:#cdbb98}input,textarea,select{width:100%;padding:11px;border-radius:7px;border:1px solid #4c3a1d;background:#070605;color:white;box-sizing:border-box}button{padding:11px 16px;border:1px solid #d8ad58;background:#d8ad58;color:#120e07;border-radius:7px;font-weight:bold;cursor:pointer;margin-top:12px}.danger{background:#4b2118;color:#fff;border-color:#7b3a2b}.muted{color:#a99a7e}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:9px;border-bottom:1px solid #302615;text-align:left;white-space:nowrap}th{color:#e4c574}.ok{color:#89d08a}.pending{color:#e5c271}.failed{color:#dc8175}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+<header><h1>BAZAM-E-ZARBAAT — Admin</h1><p class="muted">Secure event controls, live seats and paid bookings.</p></header>
+<div class="box" id="login"><h2>Admin Login</h2><input id="password" type="password" placeholder="Admin password"><button onclick="login()">Login</button></div>
+<div id="panel" style="display:none">
+<div class="grid">
+<div class="box"><h2>Event Settings</h2>
+<label>Event Name</label><input id="eventName"><label>Urdu Name</label><input id="urduName"><label>Tagline</label><input id="tagline"><label>Time</label><input id="time"><label>Venue</label><input id="venue"><label>Instagram</label><input id="instagram"><label>Available Seats</label><input id="seatCount" type="number" min="0"><label>Booking Status</label><select id="bookingEnabled"><option value="true">Open</option><option value="false">Closed</option></select><label>Poets (one per line)</label><textarea id="poets"></textarea><button onclick="save()">Save Changes</button><button class="danger" onclick="logout()">Logout</button></div>
+<div class="box"><h2>Quick Info</h2><p>Payment: <b id="gateway"></b></p><p>Live available seats: <b id="liveSeats"></b></p><p class="muted">Razorpay secret keys are stored only in the server environment and never shown here.</p><a href="/" style="color:#e7c675">← View website</a><br><button onclick="location.href='/api/admin/export'">Export Bookings JSON</button></div>
+</div>
+<div class="box"><h2>Bookings</h2><div class="tablewrap"><table><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Hours</th><th>Seats</th><th>Amount</th><th>Status</th><th>Payment</th><th>Created</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+async function api(url,opt={}){const r=await fetch(url,{headers:{"Content-Type":"application/json"},...opt});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||"Request failed");return d}
+async function login(){try{await api("/api/admin/login",{method:"POST",body:JSON.stringify({password:$("password").value})});$("login").style.display="none";$("panel").style.display="block";load()}catch(e){alert(e.message)}}
+async function load(){try{const d=await api("/api/admin/dashboard");$("eventName").value=d.settings.eventName;$("urduName").value=d.settings.urduName;$("tagline").value=d.settings.tagline;$("time").value=d.settings.time;$("venue").value=d.settings.venue;$("instagram").value=d.settings.instagram;$("seatCount").value=d.settings.seats;$("bookingEnabled").value=String(d.settings.bookingEnabled);$("poets").value=d.settings.poets.join("\\n");$("gateway").textContent=d.settings.razorpayEnabled===false?"Not configured":"Configured";$("liveSeats").textContent=d.settings.seats;$("rows").innerHTML=d.bookings.map(b=>`<tr><td>${b.id}</td><td>${b.name}</td><td>${b.phone}</td><td>${b.hours}</td><td>${b.seats}</td><td>₹${(b.amount/100).toLocaleString("en-IN")}</td><td class="${b.status.toLowerCase()}">${b.status}</td><td>${b.paymentId||"-"}</td><td>${new Date(b.createdAt).toLocaleString()}</td></tr>`).join("")}catch(e){if(e.message==="Unauthorized"){location.reload()}else alert(e.message)}}
+async function save(){try{await api("/api/admin/settings",{method:"PUT",body:JSON.stringify({eventName:$("eventName").value,urduName:$("urduName").value,tagline:$("tagline").value,time:$("time").value,venue:$("venue").value,instagram:$("instagram").value,seats:+$("seatCount").value,bookingEnabled:$("bookingEnabled").value==="true",poets:$("poets").value.split("\\n").map(x=>x.trim()).filter(Boolean)})});alert("Saved");load()}catch(e){alert(e.message)}}
+async function logout(){await api("/api/admin/logout",{method:"POST"});location.reload()}
+api("/api/admin/me").then(()=>{$("login").style.display="none";$("panel").style.display="block";load()}).catch(()=>{});
+</script></div></body></html>

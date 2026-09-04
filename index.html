@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bazm-e-Zarbaat — Mushaira</title>
+<meta name="description" content="Bazm-e-Zarbaat — Mushaira in Srinagar, Kashmir. Opening soon.">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+:root{--bg:#070605;--panel:#12100c;--gold:#d8ad58;--gold2:#f3d38a;--cream:#f7efd9;--muted:#b5a789;--line:#4a371a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0,#2a1b09 0,#080706 38%,#030303 100%);color:var(--cream);font-family:Georgia,"Times New Roman",serif}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:#080706e8;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}.logo{color:var(--gold2);font-weight:bold;letter-spacing:2px}.navlinks{display:flex;gap:18px;font-size:.92rem}.navlinks a:hover{color:var(--gold2)}
+.hero{display:grid;grid-template-columns:1fr .82fr;gap:40px;align-items:center;padding:70px 0 55px;min-height:90vh}.badge{border:1px solid var(--gold);padding:7px 13px;border-radius:99px;color:var(--gold2);letter-spacing:2px;font-size:.75rem}.hero h1{font-size:clamp(3rem,8vw,6.7rem);line-height:.88;color:var(--gold2);margin:18px 0 8px;letter-spacing:-2px}.urdu{font-family:"Noto Naskh Arabic","Noto Nastaliq Urdu",serif;direction:rtl;color:#eac77e;font-size:clamp(2.3rem,6vw,4.7rem)}.lead{font-size:1.1rem;line-height:1.75;color:#d5c7a9}.notice{border:1px dashed #654a21;background:#0d0b08;padding:15px;border-radius:10px;line-height:1.65;color:#d7c69e}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}.btn{display:inline-block;padding:13px 20px;border-radius:8px;background:var(--gold);color:#120e06;font-weight:bold;border:1px solid var(--gold);cursor:pointer}.btn.alt{background:transparent;color:var(--gold2)}.poster{border:1px solid #5b431b;border-radius:18px;padding:9px;background:#0d0b08;box-shadow:0 20px 70px #000}.poster img{width:100%;display:block;border-radius:10px}
+section{padding:78px 0}.head{text-align:center;max-width:760px;margin:0 auto 35px}.eyebrow{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}h2{font-size:clamp(2rem,5vw,3.2rem);margin:10px 0} .head p,.card p{color:var(--muted);line-height:1.7}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#15120d,#0c0b09);border:1px solid var(--line);padding:23px;border-radius:14px}.card h3{color:var(--gold2);margin-top:0}
+.poets{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.poet{padding:20px 10px;text-align:center;border:1px solid var(--line);border-radius:12px;background:#0e0c09}.poet b{display:block;color:var(--gold2)}.poet small{color:#9f9075}.prices{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.price{padding:18px 8px;text-align:center;border:1px solid var(--line);border-radius:12px;background:#0e0c09}.price strong{display:block;color:var(--gold2);font-size:1.9rem}.price span{color:#a99a7e;font-size:.85rem}
+.booking{display:grid;grid-template-columns:1fr 1fr;gap:18px}.box{background:#0e0c09;border:1px solid var(--line);border-radius:14px;padding:25px}.box label{display:block;color:#d8c8a7;margin:12px 0 6px}.box input,.box select{width:100%;padding:12px;border-radius:8px;border:1px solid #4a391f;background:#070605;color:white}.total{margin:15px 0;padding:14px;border-radius:8px;background:#18130b;color:var(--gold2);font-weight:bold}.success{display:none;border:1px solid var(--gold);padding:24px;border-radius:14px;background:#12100b}.success h3{color:var(--gold2)}.quote{text-align:center;max-width:850px;margin:auto;border:1px solid var(--line);border-radius:16px;padding:32px;background:#0d0b08}.quote .urdu{font-size:1.8rem}.quote p{color:var(--muted);font-style:italic}
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:#8f8169}
+@media(max-width:850px){.hero,.booking{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.poets{grid-template-columns:1fr 1fr}.prices{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding-top:40px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav"><a class="logo" href="#">BAZAM-E-ZARBAAT</a><div class="navlinks"><a href="#about">About</a><a href="#poets">Poets</a><a href="#tickets">Tickets</a><a href="#booking">Book</a><a href="/admin.html">Admin</a></div></div></nav>
+
+<header class="wrap hero">
+<div>
+<span class="badge">OPENING SOON • SRINAGAR, KASHMIR</span>
+<h1>BAZAM-E-ZARBAAT</h1><div class="urdu">بزمِ ضربات</div>
+<p class="lead"><b>Where words touch hearts and leave a mark.</b><br>ایک ایسی شام جہاں شاعری، احساس اور ادب ایک ساتھ دلوں تک پہنچیں۔</p>
+<div class="buttons"><a class="btn" href="#booking">Book Your Seat</a><a class="btn alt" href="#tickets">Tickets</a></div>
+<div class="notice">⏰ <b>5:00 PM – 8:00 PM</b> — and further extended in future.<br>📍 <b>Srinagar, Kashmir</b> — exact location will be announced soon.<br>📸 Instagram: <b>@bazam-e-zarbaat</b></div>
+</div>
+<div class="poster"><img src="/poster.png" alt="Bazm-e-Zarbaat Mushaira poster"></div>
+</header>
+
+<section id="about"><div class="wrap"><div class="head"><div class="eyebrow">The Mehfil</div><h2>ایک شام، الفاظ کے نام</h2><p>A bilingual Mushaira celebrating legendary poetry and the original voices of today's poets.</p></div>
+<div class="grid"><div class="card"><h3>Famous Shayari</h3><p>Selected recitations from poets such as Jaun Elia, Ahmad Faraz, Allama Iqbal, Faiz Ahmed Faiz and Wasim Barelvi.</p></div><div class="card"><h3>Apni Shayari</h3><p>Poets will also present their own original poetry — their own words, emotions and voice.</p></div><div class="card"><h3>Poetry Lovers</h3><p>Meet fellow lovers of Urdu poetry and experience an evening of adab, conversation, chai and connection.</p></div></div></div></section>
+
+<section id="poets"><div class="wrap"><div class="head"><div class="eyebrow">Poetry</div><h2>Famous Poets</h2><p>Selected works may be recited as part of the final programme.</p></div><div class="poets" id="poetsList"></div></div></section>
+
+<section><div class="wrap"><div class="quote"><div class="urdu">لفظ جب دل سے نکلتے ہیں تو دل تک پہنچتے ہیں</div><p>“When words come from the heart, they find their way to another heart.”</p><div class="urdu">شاعری وہ روشنی ہے جو خاموش دلوں کو آواز دیتی ہے</div><p>“Poetry gives a voice to the quiet corners of the heart.”</p></div></div></section>
+
+<section id="tickets"><div class="wrap"><div class="head"><div class="eyebrow">Tickets</div><h2>₹100 Per Hour</h2><p>Choose from 1 to 5 hours. The price is ₹100 per hour, per seat.</p></div><div class="prices" id="prices"></div></div></section>
+
+<section id="booking"><div class="wrap"><div class="head"><div class="eyebrow">Secure Booking</div><h2>Reserve Your Seat</h2><p>Pay securely online with <b>Razorpay or Paytm</b>. UPI, cards, net banking and other supported payment methods depend on the selected gateway.</p></div>
+<div class="booking"><div class="box">
+<form id="form">
+<label>Name</label><input id="name" required maxlength="100" placeholder="Your full name">
+<label>Mobile Number</label><input id="phone" required maxlength="30" placeholder="+91 XXXXX XXXXX">
+<label>Email (optional)</label><input id="email" type="email" maxlength="160" placeholder="For email confirmation">
+<label>Hours</label><select id="hours"></select>
+<label>Number of Seats</label><input id="seats" type="number" min="1" max="20" value="1">
+<label>Payment Method</label>
+<select id="gateway">
+  <option value="razorpay">Razorpay</option>
+  <option value="paytm">Paytm</option>
+</select>
+<div class="total" id="total">Total: ₹100</div>
+<button class="btn" id="pay" type="submit">Pay & Book Seat</button>
+</form></div>
+<div class="box"><h3>Live Seat Availability</h3><div class="total" id="availability">Loading…</div><p style="color:#b5a789;line-height:1.7">Your seats are reserved while the payment is being completed. A successful payment produces a booking ID and confirmation.</p><div class="notice">📍 <b>Venue:</b> <span id="venue">Srinagar, Kashmir — exact location will be announced soon</span></div></div></div>
+<div class="success" id="success"></div>
+</div></section>
+
+<footer><div class="wrap">© 2026 Bazm-e-Zarbaat • بزمِ ضربات • Srinagar, Kashmir • Instagram @bazam-e-zarbaat</div></footer>
+
+<script>
+let eventData=null;
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+async function loadEvent(){
+ const r=await fetch("/api/event"); eventData=await r.json();
+ document.getElementById("availability").textContent=`${eventData.availableSeats} seats available`;
+ document.getElementById("venue").textContent=eventData.venue;
+ document.getElementById("poetsList").innerHTML=eventData.poets.map(p=>`<div class="poet"><b>${esc(p)}</b></div>`).join("");
+ document.getElementById("prices").innerHTML=[1,2,3,4,5].map(h=>`<div class="price"><span>${h} ${h===1?"Hour":"Hours"}</span><strong>${money(h*100)}</strong><small>per seat</small></div>`).join("");
+ document.getElementById("hours").innerHTML=[1,2,3,4,5].map(h=>`<option value="${h}">${h} ${h===1?"hour":"hours"} — ${money(h*100)}</option>`).join("");
+const gateway=document.getElementById("gateway");
+ if(!eventData.razorpayEnabled && eventData.paytmEnabled) gateway.value="paytm";
+ [...gateway.options].forEach(o=>{
+   o.disabled = (o.value==="razorpay" && !eventData.razorpayEnabled) || (o.value==="paytm" && !eventData.paytmEnabled);
+ });
+ document.getElementById("pay").disabled=(!eventData.razorpayEnabled && !eventData.paytmEnabled) || !eventData.bookingEnabled;
+ updateTotal();
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function updateTotal(){const h=+document.getElementById("hours").value||1,s=+document.getElementById("seats").value||1;document.getElementById("total").textContent=`Total: ${money(h*100*s)}`}
+document.getElementById("hours").onchange=updateTotal;document.getElementById("seats").oninput=updateTotal;
+
+document.getElementById("gateway").onchange=()=>{loadEvent();};
+document.getElementById("form").onsubmit=async e=>{
+ e.preventDefault();
+ const btn=document.getElementById("pay"); const gateway=document.getElementById("gateway").value;
+ btn.disabled=true; btn.textContent=gateway==="paytm"?"Opening Paytm…":"Creating secure payment…";
+ try{
+  const payload={name:name.value,phone:phone.value,email:email.value,hours:+hours.value,seats:+seats.value};
+  if(gateway==="paytm"){
+   const r=await fetch("/api/bookings/create-paytm-order",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+   const d=await r.json(); if(!r.ok) throw new Error(d.error||"Could not create Paytm order");
+   const f=document.createElement("form");
+   f.method="POST"; f.action=d.paymentUrl; f.style.display="none";
+   [["mid",d.mid],["orderId",d.orderId],["txnToken",d.txnToken]].forEach(([k,v])=>{
+     const input=document.createElement("input"); input.type="hidden"; input.name=k; input.value=v; f.appendChild(input);
+   });
+   document.body.appendChild(f); f.submit();
+   return;
+  }
+
+  const r=await fetch("/api/bookings/create-order",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+  const d=await r.json(); if(!r.ok) throw new Error(d.error||"Could not create order");
+  const options={
+   key:d.keyId,amount:d.amount,currency:d.currency,name:"Bazm-e-Zarbaat",description:d.description,order_id:d.orderId,
+   prefill:{name:payload.name,contact:payload.phone,email:payload.email},
+   theme:{color:"#d8ad58"},
+   handler:async response=>{
+    const vr=await fetch("/api/bookings/verify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...response,bookingId:d.bookingId})});
+    const vd=await vr.json(); if(!vr.ok) throw new Error(vd.error||"Payment verification failed");
+    showSuccess(vd.booking,vd.settings);
+   },
+   modal:{ondismiss:()=>{btn.disabled=false;btn.textContent="Pay & Book Seat";loadEvent()}}
+  };
+  new Razorpay(options).open();
+ }catch(err){alert(err.message);btn.disabled=false;btn.textContent="Pay & Book Seat";loadEvent()}
+};
+function showSuccess(b,s){
+ document.getElementById("form").style.display="none";
+ const box=document.getElementById("success");box.style.display="block";
+ box.innerHTML=`<h3>✓ Booking Confirmed</h3><p><b>Booking ID:</b> ${esc(b.id)}</p><p><b>Name:</b> ${esc(b.name)}</p><p><b>Seats:</b> ${b.seats}</p><p><b>Hours:</b> ${b.hours}</p><p><b>Amount Paid:</b> ${money(b.amount/100)}</p><p><b>Time:</b> ${esc(s.time)}</p><p><b>Venue:</b> ${esc(s.venue)}</p><p style="color:#b5a789">Keep your Booking ID. Your payment has been verified on the server.</p>`;
+ loadEvent();
+}
+loadEvent(); setInterval(loadEvent,15000);
+</script>
+</body></html>
